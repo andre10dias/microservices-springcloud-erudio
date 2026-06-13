@@ -1,6 +1,7 @@
 package com.github.andre10dias.microservices_springcloud_erudio.exception.handler;
 
 import com.github.andre10dias.microservices_springcloud_erudio.exception.ExceptionResponse;
+import com.github.andre10dias.microservices_springcloud_erudio.exception.ResourceNotFoundException;
 import com.github.andre10dias.microservices_springcloud_erudio.exception.UnsupportedMathOperationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,5 +37,16 @@ public class CustomEntityResponseHandler extends ResponseEntityExceptionHandler 
         );
 
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public final ResponseEntity<ExceptionResponse> handlerNotFoundExceptions(Exception ex, WebRequest request) {
+        ExceptionResponse response = new ExceptionResponse(
+                new Date(),
+                ex.getMessage(),
+                request.getDescription(false)
+        );
+
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 }
