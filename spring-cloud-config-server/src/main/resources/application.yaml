@@ -1,0 +1,19 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/andre10dias/microservices-springcloud-erudio-config
+          search-paths:
+            - 'greeting-service*'
+#          username: username -> caso o repositorio seja privado
+#          password: password
+#        default-label: main -> spring cloud legado
+#  profiles:  apontando para as configurações locais
+#    active:
+#      - native
