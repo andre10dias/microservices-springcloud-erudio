@@ -23,10 +23,10 @@ public class GreetingController {
             @RequestParam(value = "name", defaultValue = "")
             String name
     ) {
-        if(name.isEmpty()) name = configuration.defaultValue();
+        if(name.isEmpty()) name = configuration.getDefaultValue();
         return new Greeting(
                 counter.incrementAndGet(),
-                String.format(template, configuration.greeting(), name)
+                String.format(template, configuration.getGreeting(), name)
         );
     }
 }

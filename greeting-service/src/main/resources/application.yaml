@@ -9,7 +9,7 @@ spring:
       - optional:configserver:http://localhost:8888/
   cloud:
     config:
-      profile: pt #Definindo profile ativo
+      profile: it #Definindo profile ativo
 
 management:
   endpoints:
