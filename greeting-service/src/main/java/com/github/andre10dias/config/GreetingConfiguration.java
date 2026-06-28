@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 
 @ConfigurationProperties("greeting-service")
-@RefreshScope
+@RefreshScope //Permite atualizar as configurações sem interromper o microserviço após executar o actuator refresh
 public class GreetingConfiguration {
     private String greeting;
     private String defaultValue;
