@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: greeting-service
+  config:
+    import:
+      - optional:configserver:http://localhost:8888/
+  cloud:
+    config:
+      profile: pt #Definindo profile ativo
 
 management:
   endpoints:
